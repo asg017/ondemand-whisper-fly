@@ -1,0 +1,18 @@
+# app = ""
+primary_region = "ord"
+vm.size = "a100-40gb"
+
+# Use a volume to store LLMs or any big file that doesn't fit in a Docker image
+[[mounts]]
+source = "data"
+destination = "/data"
+initial_size = "10gb"
+
+[http_service]
+internal_port = 8080
+auto_stop_machines = false
+
+[env]
+  HUGGINGFACE_HUB_CACHE = "/data/hf_cache"
+  MP3_DIRECTORY = "/data/mp3_cache"
+  DB_PATH = "/data/queue2.db"
