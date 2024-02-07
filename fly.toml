@@ -10,9 +10,12 @@ initial_size = "10gb"
 
 [http_service]
 internal_port = 8080
-auto_stop_machines = false
+auto_stop_machines = true
+auto_start_machines = true
+min_machines_running = 0
 
 [env]
   HUGGINGFACE_HUB_CACHE = "/data/hf_cache"
   MP3_DIRECTORY = "/data/mp3_cache"
-  DB_PATH = "/data/queue2.db"
+  DB_PATH = "/data/queue3.db"
+  SCALE_TO_ZERO_DURATION = "1200"

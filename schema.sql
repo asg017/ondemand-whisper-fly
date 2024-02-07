@@ -31,11 +31,21 @@ create table if not exists jobs(
   -- when status == 'completed', timestamp when fully complete
   completed_at datetime,
 
-  -- 'queue-yt' | 'yt' | 'queue-whisper' | 'whisper' | 'completed' | 'failure'
-  status text not null,
+  download_started_at datetime,
+  download_completed_at datetime,
+
+  whisper_started_at datetime,
+  whisper_completed_at datetime,
+
+  video_title text,
+  video_duration_seconds float,
+
 
   -- Only 'youtube' for now
   job_type text not null,
+
+  -- 'queue-yt' | 'yt' | 'queue-whisper' | 'whisper' | 'completed' | 'failure'
+  status text not null,
 
   -- when job_type == 'youtube', URL to youtube video
   url text not null,
